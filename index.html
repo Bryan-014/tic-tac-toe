@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jogo Da Velha</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="contentGame">
+      <h1>Jogo Da Velha</h1>
+      <div class="row">
+        <input type="button" value="." id="top1" onclick="playIn('top', '1')" />
+        <input type="button" value="." id="top2" onclick="playIn('top', '2')" />
+        <input type="button" value="." id="top3" onclick="playIn('top', '3')" />
+      </div>
+      <div class="row">
+        <input
+          type="button"
+          value="."
+          id="middle1"
+          onclick="playIn('middle', '1')"
+        />
+        <input
+          type="button"
+          value="."
+          id="middle2"
+          onclick="playIn('middle', '2')"
+        />
+        <input
+          type="button"
+          value="."
+          id="middle3"
+          onclick="playIn('middle', '3')"
+        />
+      </div>
+      <div class="row">
+        <input
+          type="button"
+          value="."
+          id="bottom1"
+          onclick="playIn('bottom', '1')"
+        />
+        <input
+          type="button"
+          value="."
+          id="bottom2"
+          onclick="playIn('bottom', '2')"
+        />
+        <input
+          type="button"
+          value="."
+          id="bottom3"
+          onclick="playIn('bottom', '3')"
+        />
+      </div>
+      <div class="row">
+        <h2>Vez de: <span id="vezDe">X</span></h2>
+      </div>
+      <div class="placar">
+        <div class="row">Placar:</div>
+        <div class="row p1">
+          <div class="plac red">X = <span id="placX">0</span></div>
+          <div class="plac blue">O = <span id="placO">0</span></div>
+        </div>
+        <div class="plac row">Velha = <span id="placV">0</span></div>
+      </div>
+    </div>
+  </body>
+  <script src="./script.js"></script>
+</html>

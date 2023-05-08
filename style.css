@@ -1,0 +1,79 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  background-color: #bababa;
+}
+
+.contentGame {
+  margin-top: 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+input[type='button'] {
+  background-color: #bababa;
+  color: #bababa;
+  border: none;
+  cursor: pointer;
+  margin: 0px;
+  font-size: 120px;
+  height: 120px;
+  width: 120px;
+  padding: 0;
+}
+
+#middle2 {
+  border: 1px solid #000 !important;
+}
+
+#middle1,
+#middle3 {
+  border-top: 1px solid #000 !important;
+  border-bottom: 1px solid #000 !important;
+}
+
+#top2,
+#bottom2 {
+  border-left: 1px solid #000 !important;
+  border-right: 1px solid #000 !important;
+}
+
+h1 {
+  margin-bottom: 15px;
+}
+
+.p1 {
+  display: flex;
+  gap: 12px;
+}
+
+.placar {
+  font-size: 35px;
+}
+
+.plac {
+  background-color: #1d9e2c;
+  border: 2px solid #f0be08;
+  padding: 4px;
+  border-radius: 4px;
+}
+
+.red {
+  color: #f00;
+}
+
+.blue {
+  color: #00f;
+}
+
+.plac.row {
+  margin-top: 5px;
+  color: #fff;
+}
