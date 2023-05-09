@@ -1,10 +1,6 @@
 var gameMatriz = loadInitMatriz();
 var vezDeVar = loadInitPlayer();
-var placar = {
-  x: 0,
-  o: 0,
-  v: 0
-};
+var placar = placInit();
 
 function loadInitMatriz() {
   return [
@@ -12,6 +8,14 @@ function loadInitMatriz() {
     [0, 0, 0],
     [0, 0, 0]
   ];
+}
+
+function placInit() {
+  return {
+    x: 0,
+    o: 0,
+    v: 0
+  };
 }
 
 function loadInitPlayer() {
@@ -51,7 +55,7 @@ function playIn(Locale, position) {
         placar.o += 1;
         break;
       case 3:
-        alert('Infelizmente deu velha!');
+        alert('Empatou!');
         placar.v += 1;
         break;
 
@@ -65,6 +69,13 @@ function playIn(Locale, position) {
     if (winCheck != 0) {
       updatePlac();
       restart(winCheck == 1 ? 'X' : 'O');
+      if (document.querySelector('#mode').value != 'loc' && vezDeVar == 'O') {
+        botTurn();
+      }
+    } else {
+      if (document.querySelector('#mode').value != 'loc' && vezDeVar == 'O') {
+        botTurn();
+      }
     }
   }
 }
@@ -138,3 +149,9 @@ function restart(playerInit) {
   document.querySelector('#bottom3').value = '.';
   document.querySelector('#bottom3').style.color = '#bababa';
 }
+
+document.querySelector('#mode').addEventListener('change', () => {
+  restart('X');
+  placar = placInit();
+  updatePlac();
+});

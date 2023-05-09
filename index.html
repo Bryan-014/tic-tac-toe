@@ -11,6 +11,14 @@
     <div class="contentGame">
       <h1>Jogo Da Velha</h1>
       <div class="row">
+        <select name="mode" id="mode">
+          <option value="loc">Multiplayer local</option>
+          <option value="easy">Bot Fácil</option>
+          <option value="med">Bot Médio</option>
+          <option value="imposs">Bot Impossivel</option>
+        </select>
+      </div>
+      <div class="row">
         <input type="button" value="." id="top1" onclick="playIn('top', '1')" />
         <input type="button" value="." id="top2" onclick="playIn('top', '2')" />
         <input type="button" value="." id="top3" onclick="playIn('top', '3')" />
@@ -69,4 +77,5 @@
     </div>
   </body>
   <script src="./script.js"></script>
+  <script src="./bot.js"></script>
 </html>
