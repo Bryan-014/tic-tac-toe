@@ -27,6 +27,7 @@ input[type='button'] {
   height: 120px;
   width: 120px;
   padding: 0;
+  margin-inline: -2px;
 }
 
 #middle2 {
@@ -51,7 +52,6 @@ h1 {
 
 .p1 {
   display: flex;
-  gap: 12px;
 }
 
 .placar {
@@ -59,21 +59,31 @@ h1 {
 }
 
 .plac {
-  background-color: #1d9e2c;
-  border: 2px solid #f0be08;
-  padding: 4px;
-  border-radius: 4px;
+  border: 2px solid #000;
+  color: #fff;
+  padding: 0;
+}
+
+.plac:not(.row) span {
+  background-color: #000;
+  padding: 2px;
+}
+
+.plac:not(.row) {
+  border-bottom: 0;
 }
 
 .red {
-  color: #f00;
+  background-color: #f00;
 }
 
 .blue {
-  color: #00f;
+  background-color: #00f;
 }
 
 .plac.row {
-  margin-top: 5px;
+  margin-bottom: 5px;
   color: #fff;
+  background-color: #000;
+  text-align: center;
 }
