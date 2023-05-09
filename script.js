@@ -28,7 +28,7 @@ function playIn(Locale, position) {
   if (document.querySelector('#' + Locale + position).value == '.') {
     document.querySelector('#' + Locale + position).value = vezDeVar;
     document.querySelector('#' + Locale + position).style.color =
-      vezDeVar == 'X' ? '#911d1d' : '#1b1d8f';
+      vezDeVar == 'X' ? '#f52222' : '#1e2ee6';
 
     switch (Locale) {
       case 'top':
@@ -140,23 +140,23 @@ function restart(playerInit) {
   changeFocusPlayer();
 
   document.querySelector('#top1').value = '.';
-  document.querySelector('#top1').style.color = '#21a652';
+  document.querySelector('#top1').style.color = '#c9c9c9';
   document.querySelector('#top2').value = '.';
-  document.querySelector('#top2').style.color = '#21a652';
+  document.querySelector('#top2').style.color = '#c9c9c9';
   document.querySelector('#top3').value = '.';
-  document.querySelector('#top3').style.color = '#21a652';
+  document.querySelector('#top3').style.color = '#c9c9c9';
   document.querySelector('#middle1').value = '.';
-  document.querySelector('#middle1').style.color = '#21a652';
+  document.querySelector('#middle1').style.color = '#c9c9c9';
   document.querySelector('#middle2').value = '.';
-  document.querySelector('#middle2').style.color = '#21a652';
+  document.querySelector('#middle2').style.color = '#c9c9c9';
   document.querySelector('#middle3').value = '.';
-  document.querySelector('#middle3').style.color = '#21a652';
+  document.querySelector('#middle3').style.color = '#c9c9c9';
   document.querySelector('#bottom1').value = '.';
-  document.querySelector('#bottom1').style.color = '#21a652';
+  document.querySelector('#bottom1').style.color = '#c9c9c9';
   document.querySelector('#bottom2').value = '.';
-  document.querySelector('#bottom2').style.color = '#21a652';
+  document.querySelector('#bottom2').style.color = '#c9c9c9';
   document.querySelector('#bottom3').value = '.';
-  document.querySelector('#bottom3').style.color = '#21a652';
+  document.querySelector('#bottom3').style.color = '#c9c9c9';
 }
 
 document.querySelector('#mode').addEventListener('change', () => {
@@ -205,5 +205,5 @@ function changeFocusPlayer() {
 
   let element = vezDeVar == 'X' ? 'red' : 'blue';
 
-  document.querySelector('.plac.' + element).style.border = '2px solid #14e32d';
+  document.querySelector('.plac.' + element).style.border = '2px solid #e1f016';
 }

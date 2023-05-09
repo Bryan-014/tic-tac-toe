@@ -6,7 +6,7 @@
 
 html,
 body {
-  background-color: #21a652;
+  background-color: #c9c9c9;
 }
 
 .contentGame {
@@ -18,8 +18,8 @@ body {
 }
 
 input[type='button'] {
-  background-color: #21a652;
-  color: #21a652;
+  background-color: #c9c9c9;
+  color: #c9c9c9;
   border: none;
   cursor: pointer;
   margin: 0px;
@@ -31,19 +31,19 @@ input[type='button'] {
 }
 
 #middle2 {
-  border: 3px solid #29623e !important;
+  border: 3px solid #24252b !important;
 }
 
 #middle1,
 #middle3 {
-  border-top: 3px solid #29623e !important;
-  border-bottom: 3px solid #29623e !important;
+  border-top: 3px solid #24252b !important;
+  border-bottom: 3px solid #24252b !important;
 }
 
 #top2,
 #bottom2 {
-  border-left: 3px solid #29623e !important;
-  border-right: 3px solid #29623e !important;
+  border-left: 3px solid #24252b !important;
+  border-right: 3px solid #24252b !important;
 }
 
 h1 {
@@ -77,11 +77,11 @@ h1 {
 }
 
 .red {
-  background-color: #911d1d;
+  background-color: #f52222;
 }
 
 .blue {
-  background-color: #1b1d8f;
+  background-color: #1e2ee6;
 }
 
 .plac.row {
@@ -95,7 +95,7 @@ h1 {
 select {
   margin: 8px;
   margin-bottom: 38px;
-  background-color: #21a652;
+  background-color: #c9c9c9;
   color: #fff;
   border: 0;
   border-bottom: 1px solid #000;
