@@ -6,7 +6,7 @@
 
 html,
 body {
-  background-color: #bababa;
+  background-color: #21a652;
 }
 
 .contentGame {
@@ -18,8 +18,8 @@ body {
 }
 
 input[type='button'] {
-  background-color: #bababa;
-  color: #bababa;
+  background-color: #21a652;
+  color: #21a652;
   border: none;
   cursor: pointer;
   margin: 0px;
@@ -31,19 +31,19 @@ input[type='button'] {
 }
 
 #middle2 {
-  border: 1px solid #000 !important;
+  border: 3px solid #29623e !important;
 }
 
 #middle1,
 #middle3 {
-  border-top: 1px solid #000 !important;
-  border-bottom: 1px solid #000 !important;
+  border-top: 3px solid #29623e !important;
+  border-bottom: 3px solid #29623e !important;
 }
 
 #top2,
 #bottom2 {
-  border-left: 1px solid #000 !important;
-  border-right: 1px solid #000 !important;
+  border-left: 3px solid #29623e !important;
+  border-right: 3px solid #29623e !important;
 }
 
 h1 {
@@ -55,6 +55,7 @@ h1 {
 }
 
 .placar {
+  margin-top: 35px;
   font-size: 35px;
 }
 
@@ -66,7 +67,9 @@ h1 {
 
 .plac:not(.row) span {
   background-color: #000;
-  padding: 2px;
+  padding-top: 0px;
+  padding-bottom: 1px;
+  padding-inline: 4px;
 }
 
 .plac:not(.row) {
@@ -74,26 +77,42 @@ h1 {
 }
 
 .red {
-  background-color: #f00;
+  background-color: #911d1d;
 }
 
 .blue {
-  background-color: #00f;
+  background-color: #1b1d8f;
 }
 
 .plac.row {
   margin-bottom: 5px;
   color: #fff;
-  background-color: #000;
+  background-color: #545454;
   text-align: center;
+  border-radius: 0 0 45px 45px;
 }
 
 select {
   margin: 8px;
-  background-color: #000;
+  margin-bottom: 38px;
+  background-color: #21a652;
   color: #fff;
+  border: 0;
+  border-bottom: 1px solid #000;
   font-size: 18px;
   padding: 6px;
   outline: none;
   border-radius: 4px;
+  border-radius: 0;
+}
+
+select option {
+  background-color: #fff;
+  color: #000;
+}
+
+.row.input {
+  width: 368px;
+  display: flex;
+  justify-content: flex-start;
 }
