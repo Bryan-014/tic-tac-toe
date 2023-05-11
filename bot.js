@@ -38,6 +38,7 @@ function botMed() {
   };
 
   let actBoardInformations = viewBoard();
+  //actBoardInformations postition disclaimer second index represent: 0 = Y and 1 = X
 
   let setX = '';
   let setY = '';
@@ -126,13 +127,197 @@ function botMed() {
       }
       break;
     case 4:
-      //This code is only for test, remove after programing the correct round!
+      let foundGameOkSpot = () => {
+        let sortPosition = Math.floor(Math.random() * 2);
 
-      do {
-        setX = positions.x[parseInt(Math.random() * 3)];
-        setY = positions.y[parseInt(Math.random() * 3)];
-      } while (document.querySelector('#' + setY + setX).value != '.');
+        if (sortPosition == 0) {
+          setX = positions.x[actBoardInformations.positionsO[0][1]];
 
+          let isOkInThisLine = false;
+
+          if (
+            document.querySelector('#' + positions.y[0] + setX).value != '.' ||
+            document.querySelector('#' + positions.y[1] + setX).value != '.' ||
+            document.querySelector('#' + positions.y[2] + setX).value != '.'
+          ) {
+            isOkInThisLine = true;
+          }
+
+          if (isOkInThisLine) {
+            do {
+              setY = positions.y[parseInt(Math.random() * 3)];
+            } while (document.querySelector('#' + setY + setX).value != '.');
+          } else {
+            setY = positions.y[actBoardInformations.positionsO[0][0]];
+
+            do {
+              setX = positions.x[parseInt(Math.random() * 3)];
+            } while (document.querySelector('#' + setY + setX).value != '.');
+          }
+        } else {
+          setY = positions.y[actBoardInformations.positionsO[0][0]];
+
+          let isOkInThisLine = false;
+
+          if (
+            document.querySelector('#' + setY + positions.x[0]).value != '.' ||
+            document.querySelector('#' + setY + positions.x[1]).value != '.' ||
+            document.querySelector('#' + setY + positions.x[2]).value != '.'
+          ) {
+            isOkInThisLine = true;
+          }
+
+          if (isOkInThisLine) {
+            do {
+              setX = positions.x[parseInt(Math.random() * 3)];
+            } while (document.querySelector('#' + setY + setX).value != '.');
+          } else {
+            setX = positions.x[actBoardInformations.positionsO[0][1]];
+
+            do {
+              setY = positions.y[parseInt(Math.random() * 3)];
+            } while (document.querySelector('#' + setY + setX).value != '.');
+          }
+        }
+      };
+
+      if (
+        actBoardInformations.positionsX[0][0] ==
+        actBoardInformations.positionsX[1][0]
+      ) {
+        setY = actBoardInformations.positionsX[0][0];
+        if (
+          actBoardInformations.positionsX[0][1] != 0 &&
+          actBoardInformations.positionsX[1][1] != 0
+        ) {
+          setX = 0;
+        } else if (
+          actBoardInformations.positionsX[0][1] != 1 &&
+          actBoardInformations.positionsX[1][1] != 1
+        ) {
+          setX = 1;
+        } else {
+          setX = 2;
+        }
+        if (
+          actBoardInformations.positionsO[0][1] != setX ||
+          actBoardInformations.positionsO[0][0] != setY
+        ) {
+          setX = positions.x[setX];
+          setY = positions.y[setY];
+        } else {
+          foundGameOkSpot();
+        }
+      } else if (
+        actBoardInformations.positionsX[0][1] ==
+        actBoardInformations.positionsX[1][1]
+      ) {
+        setX = actBoardInformations.positionsX[0][1];
+        if (
+          actBoardInformations.positionsX[0][0] != 0 &&
+          actBoardInformations.positionsX[1][0] != 0
+        ) {
+          setY = 0;
+        } else if (
+          actBoardInformations.positionsX[0][0] != 1 &&
+          actBoardInformations.positionsX[1][0] != 1
+        ) {
+          setY = 1;
+        } else {
+          setY = 2;
+        }
+
+        if (
+          actBoardInformations.positionsO[0][1] != setX ||
+          actBoardInformations.positionsO[0][0] != setY
+        ) {
+          setX = positions.x[setX];
+          setY = positions.y[setY];
+        } else {
+          foundGameOkSpot();
+        }
+      } else if (
+        (actBoardInformations.positionsX[0][0] == 1 &&
+          actBoardInformations.positionsX[0][1] == 1 &&
+          ((actBoardInformations.positionsX[1][0] == 0 &&
+            actBoardInformations.positionsX[1][1] == 0) ||
+            (actBoardInformations.positionsX[1][0] == 0 &&
+              actBoardInformations.positionsX[1][1] == 2) ||
+            (actBoardInformations.positionsX[1][0] == 2 &&
+              actBoardInformations.positionsX[1][1] == 2) ||
+            (actBoardInformations.positionsX[1][0] == 2 &&
+              actBoardInformations.positionsX[1][1] == 0))) ||
+        (actBoardInformations.positionsX[1][0] == 1 &&
+          actBoardInformations.positionsX[1][1] == 1 &&
+          ((actBoardInformations.positionsX[0][0] == 0 &&
+            actBoardInformations.positionsX[0][1] == 0) ||
+            (actBoardInformations.positionsX[0][0] == 0 &&
+              actBoardInformations.positionsX[0][1] == 2) ||
+            (actBoardInformations.positionsX[0][0] == 2 &&
+              actBoardInformations.positionsX[0][1] == 2) ||
+            (actBoardInformations.positionsX[0][0] == 2 &&
+              actBoardInformations.positionsX[0][1] == 0))) ||
+        (actBoardInformations.positionsX[0][0] == 0 &&
+          actBoardInformations.positionsX[0][1] == 0 &&
+          actBoardInformations.positionsX[1][0] == 2 &&
+          actBoardInformations.positionsX[1][1] == 2) ||
+        (actBoardInformations.positionsX[0][0] == 2 &&
+          actBoardInformations.positionsX[0][1] == 2 &&
+          actBoardInformations.positionsX[1][0] == 0 &&
+          actBoardInformations.positionsX[1][1] == 0) ||
+        (actBoardInformations.positionsX[0][0] == 0 &&
+          actBoardInformations.positionsX[0][1] == 2 &&
+          actBoardInformations.positionsX[1][0] == 2 &&
+          actBoardInformations.positionsX[1][1] == 0) ||
+        (actBoardInformations.positionsX[0][0] == 2 &&
+          actBoardInformations.positionsX[0][1] == 0 &&
+          actBoardInformations.positionsX[1][0] == 0 &&
+          actBoardInformations.positionsX[1][1] == 2)
+      ) {
+        if (
+          actBoardInformations.positionsX[0][0] != 1 &&
+          actBoardInformations.positionsX[1][0] != 1
+        ) {
+          setX = 1;
+          setY = 1;
+        } else if (
+          actBoardInformations.positionsX[0][1] == 0 ||
+          actBoardInformations.positionsX[1][1] == 0
+        ) {
+          if (
+            actBoardInformations.positionsX[0][0] == 0 ||
+            actBoardInformations.positionsX[1][0] == 0
+          ) {
+            setX = 2;
+            setY = 2;
+          } else {
+            setX = 2;
+            setY = 0;
+          }
+        } else {
+          if (
+            actBoardInformations.positionsX[0][0] == 2 ||
+            actBoardInformations.positionsX[1][0] == 2
+          ) {
+            setX = 0;
+            setY = 0;
+          } else {
+            setX = 0;
+            setY = 2;
+          }
+        }
+        if (
+          actBoardInformations.positionsO[0][0] != setX ||
+          actBoardInformations.positionsO[0][1] != setY
+        ) {
+          setX = positions.x[setX];
+          setY = positions.y[setY];
+        } else {
+          foundGameOkSpot();
+        }
+      } else {
+        foundGameOkSpot();
+      }
       break;
     case 5:
       //This code is only for test, remove after programing the correct round!
