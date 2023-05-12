@@ -4,10 +4,10 @@ function botTurn() {
       botEasy();
       break;
     case 'med':
-      botMed();
+      botRegular();
       break;
     case 'imposs':
-      botImposs();
+      botImpossible();
       break;
     default:
       break;
@@ -31,14 +31,24 @@ function botEasy() {
   playIn(sortY, parseInt(sortX));
 }
 
-function botMed() {
+function botRegular() {
   let positions = {
     x: [1, 2, 3],
     y: ['top', 'middle', 'bottom']
   };
 
   let actBoardInformations = viewBoard();
+  console.log(actBoardInformations);
   //actBoardInformations postition disclaimer second index represent: 0 = Y and 1 = X
+
+  let provisoryLastRounds = () => {
+    //This code is only for test, remove after programing the correct rounds!
+
+    do {
+      setX = positions.x[parseInt(Math.random() * 3)];
+      setY = positions.y[parseInt(Math.random() * 3)];
+    } while (document.querySelector('#' + setY + setX).value != '.');
+  };
 
   let setX = '';
   let setY = '';
@@ -320,63 +330,31 @@ function botMed() {
       }
       break;
     case 5:
-      //This code is only for test, remove after programing the correct round!
-
-      do {
-        setX = positions.x[parseInt(Math.random() * 3)];
-        setY = positions.y[parseInt(Math.random() * 3)];
-      } while (document.querySelector('#' + setY + setX).value != '.');
-
-      break;
-    case 6:
-      //This code is only for test, remove after programing the correct round!
-
-      do {
-        setX = positions.x[parseInt(Math.random() * 3)];
-        setY = positions.y[parseInt(Math.random() * 3)];
-      } while (document.querySelector('#' + setY + setX).value != '.');
-
-      break;
-    case 7:
-      //This code is only for test, remove after programing the correct round!
-
-      do {
-        setX = positions.x[parseInt(Math.random() * 3)];
-        setY = positions.y[parseInt(Math.random() * 3)];
-      } while (document.querySelector('#' + setY + setX).value != '.');
-
-      break;
-    case 8:
-      //This code is only for test, remove after programing the correct round!
-
-      do {
-        setX = positions.x[parseInt(Math.random() * 3)];
-        setY = positions.y[parseInt(Math.random() * 3)];
-      } while (document.querySelector('#' + setY + setX).value != '.');
-
-      break;
-    case 9:
-      //This code is only for test, remove after programing the correct round!
-
-      do {
-        setX = positions.x[parseInt(Math.random() * 3)];
-        setY = positions.y[parseInt(Math.random() * 3)];
-      } while (document.querySelector('#' + setY + setX).value != '.');
-
+      provisoryLastRounds();
       break;
     default:
+      provisoryLastRounds();
       break;
   }
   playIn(setY, parseInt(setX));
 }
 
-function botImposs() {
+function botImpossible() {
   let positions = {
     x: [1, 2, 3],
     y: ['top', 'middle', 'bottom']
   };
 
   let actBoardInformations = viewBoard();
+
+  let provisoryLastRounds = () => {
+    //This code is only for test, remove after programing the correct rounds!
+
+    do {
+      setX = positions.x[parseInt(Math.random() * 3)];
+      setY = positions.y[parseInt(Math.random() * 3)];
+    } while (document.querySelector('#' + setY + setX).value != '.');
+  };
 
   let setX = '';
   let setY = '';
@@ -403,93 +381,28 @@ function botImposs() {
         setY = positions.y[setY];
       }
       break;
-    case 3:
-      //This code is only for test, remove after programing the correct round!
-
-      do {
-        setX = positions.x[parseInt(Math.random() * 3)];
-        setY = positions.y[parseInt(Math.random() * 3)];
-      } while (document.querySelector('#' + setY + setX).value != '.');
-
-      break;
-    case 4:
-      //This code is only for test, remove after programing the correct round!
-
-      do {
-        setX = positions.x[parseInt(Math.random() * 3)];
-        setY = positions.y[parseInt(Math.random() * 3)];
-      } while (document.querySelector('#' + setY + setX).value != '.');
-
-      break;
-    case 5:
-      //This code is only for test, remove after programing the correct round!
-
-      do {
-        setX = positions.x[parseInt(Math.random() * 3)];
-        setY = positions.y[parseInt(Math.random() * 3)];
-      } while (document.querySelector('#' + setY + setX).value != '.');
-
-      break;
-    case 6:
-      //This code is only for test, remove after programing the correct round!
-
-      do {
-        setX = positions.x[parseInt(Math.random() * 3)];
-        setY = positions.y[parseInt(Math.random() * 3)];
-      } while (document.querySelector('#' + setY + setX).value != '.');
-
-      break;
-    case 7:
-      //This code is only for test, remove after programing the correct round!
-
-      do {
-        setX = positions.x[parseInt(Math.random() * 3)];
-        setY = positions.y[parseInt(Math.random() * 3)];
-      } while (document.querySelector('#' + setY + setX).value != '.');
-
-      break;
-    case 8:
-      //This code is only for test, remove after programing the correct round!
-
-      do {
-        setX = positions.x[parseInt(Math.random() * 3)];
-        setY = positions.y[parseInt(Math.random() * 3)];
-      } while (document.querySelector('#' + setY + setX).value != '.');
-
-      break;
-    case 9:
-      //This code is only for test, remove after programing the correct round!
-
-      do {
-        setX = positions.x[parseInt(Math.random() * 3)];
-        setY = positions.y[parseInt(Math.random() * 3)];
-      } while (document.querySelector('#' + setY + setX).value != '.');
-
-      break;
     default:
+      provisoryLastRounds();
       break;
   }
   playIn(setY, parseInt(setX));
 }
 
 function viewBoard() {
-  let tab = gameMatriz;
   let countXPlays =
-    tab[0].filter(x => x == 1).length +
-    tab[1].filter(x => x == 1).length +
-    tab[2].filter(x => x == 1).length;
+    gameMatriz[0].filter(x => x == 1).length +
+    gameMatriz[1].filter(x => x == 1).length +
+    gameMatriz[2].filter(x => x == 1).length;
 
   let countOPlays =
-    tab[0].filter(x => x == 2).length +
-    tab[1].filter(x => x == 2).length +
-    tab[2].filter(x => x == 2).length;
+    gameMatriz[0].filter(x => x == 2).length +
+    gameMatriz[1].filter(x => x == 2).length +
+    gameMatriz[2].filter(x => x == 2).length;
 
   return {
-    tabOverView: tab,
-    turnXPlays: countXPlays,
-    positionsX: takePositions(tab, 1),
-    turnOPlays: countOPlays,
-    positionsO: takePositions(tab, 2),
+    tabOverView: gameMatriz,
+    positionsX: takePositions(gameMatriz, 1),
+    positionsO: takePositions(gameMatriz, 2),
     round: countXPlays + countOPlays + 1
   };
 }
